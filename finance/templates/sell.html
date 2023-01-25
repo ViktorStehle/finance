@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="rows">
+            <select class="mb-3" id="symbol" name="symbol" required>
+                {% for quote in quotes %}
+                    <option id="symbol" name="symbol">{{ quote["symbol"] }}</option>
+                {% endfor %}
+            </select>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Amount of stock to sell" type="text">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Sell quotes</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

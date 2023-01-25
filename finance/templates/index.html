@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+    <div class="section">
+        <table class="tlayout">
+            <thead>
+                <tr>
+                    <th class="column">Symbol</th>
+                    <th class="quote">Quote</th>
+                    <th class="column">Shares</th>
+                    <th class="column">Price</th>
+                    <th class="column">Total</th>
+                </tr>
+            </thead>
+            <tbody class="tb">
+                <!-- TODO: Loop through the database entries to display them in this table -->
+
+                {% for index in indexs %}
+                <tr>
+                    <td class="column">{{ index["symbol"] }}</td>
+                    <td class="quote">{{ index["quote"] }}</td>
+                    <td class="column">{{ index["shares"] }}</td>
+                    <td class="column">{{ index["price"] }}</td>
+                    <td class="column">{{ index["total"] }}</td>
+                </tr>
+                {% endfor %}
+           </tbody>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td class="fat"> Cash: </td>
+           <td class="rside">{{ cash }}</td>
+           <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="fat"> TOTAL: </td>
+                <td class="rside">{{ total }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <div class="section">
+        <table class="historylayout">
+            <thead>
+                <tr>
+                    <th class="historycolumn">Symbol</th>
+                    <th class="historyquote">Quote</th>
+                    <th class="historycolumn">Shares</th>
+                    <th class="historycolumn">Bought/Sold for</th>
+                    <th class="historycolumn">Price</th>
+                    <th class="historycolumn">Total</th>
+                    <th class="historycolumn">Date</th>
+                </tr>
+            </thead>
+            <tbody class="tb">
+                <!-- TODO: Loop through the database entries to display them in this table -->
+
+                {% for index in indexs %}
+                <tr>
+                    <td class="historycolumn">{{ index["symbol"] }}</td>
+                    <td class="historyquote">{{ index["quote"] }}</td>
+                    <td class="historycolumn">{{ index["shares"] }}</td>
+                    <td class="historycolumn">{{ index["exchange"] }}</td>
+                    <td class="historycolumn">{{ index["price"] }}</td>
+                    <td class="historycolumn">{{ index["total"] }}</td>
+                    <td class="historycolumn">{{ index["date"] }}</td>
+                </tr>
+                {% endfor %}
+           </tbody>
+        </table>
+    </div>
+{% endblock %}
